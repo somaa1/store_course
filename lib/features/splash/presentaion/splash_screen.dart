@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../core/constants.dart';
-import '../../core/resources/manager_font_family.dart';
-import '../../core/resources/manager_font_sizes.dart';
-import '../../core/resources/manager_font_weight.dart';
-import '../../core/resources/manager_strings.dart';
-import '../../core/routes.dart';
-import '../core/resources/manager_colors.dart';
+import '../../../../core/constants.dart';
+import '../../../../core/resources/manager_font_family.dart';
+import '../../../../core/resources/manager_font_sizes.dart';
+import '../../../../core/resources/manager_font_weight.dart';
+import '../../../../core/resources/manager_strings.dart';
+import '../../../../core/routes.dart';
+import '../../../core/resources/manager_colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
