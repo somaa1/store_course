@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/constants.dart';
@@ -6,7 +5,8 @@ import '../../../../core/resources/manager_assets.dart';
 import '../../../../core/resources/manager_font_sizes.dart';
 import '../../../../core/resources/manager_height.dart';
 import '../../../../core/resources/manager_strings.dart';
-import '../../../../core/routes.dart';
+import '../../../../core/storage/local/database/shared_preferences/app_settings_shared_preferences.dart';
+import '../../../../route/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -23,7 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(
         seconds: Constants.splashTime,
       ),
-      () => Get.offAllNamed(Routes.outBoardingScreen),
+      () => AppSettingsSharedPreferences().outBoardingViewed
+          ? Get.offAllNamed(Routes.authenticationView)
+          : Get.offAllNamed(Routes.outBoardingScreen),
     );
   }
 
@@ -53,9 +55,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     ManagerAssets.splash3,
                   ),
                   const SizedBox(height: ManagerHeight.h12),
-                  const Text(
+                   Text(
                     ManagerStrings.appName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: ManagerFontSizes.s20,
                     ),
                   )

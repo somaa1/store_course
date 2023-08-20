@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-
 import '../../../../core/resources/manager_assets.dart';
 import '../../../../core/resources/manager_colors.dart';
 import '../../../../core/resources/manager_font_sizes.dart';
@@ -8,8 +7,8 @@ import '../../../../core/resources/manager_font_weight.dart';
 import '../../../../core/resources/manager_height.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_width.dart';
-import '../../../../core/routes.dart';
 import '../../../../core/widgets/base_button.dart';
+import '../../../../route/routes.dart';
 
 class AuthenticationView extends StatefulWidget {
   const AuthenticationView({Key? key}) : super(key: key);
@@ -40,7 +39,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
           Container(
             width: double.infinity,
             height: double.infinity,
-            margin:  EdgeInsets.symmetric(horizontal: ManagerWidth.w50),
+            margin: const EdgeInsets.symmetric(horizontal: ManagerWidth.w50),
             child: Column(
               children: [
                 const Spacer(
@@ -78,7 +77,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                       onPressed: () {
                         Navigator.pushNamed(context, Routes.registerView);
                       },
-                      title: 'Sign Up',
+                      title: ManagerStrings.signUp,
                       textStyle: TextStyle(
                         color: ManagerColors.white,
                         fontSize: ManagerFontSizes.s16,
@@ -90,7 +89,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                       onPressed: () {
                         Navigator.pushNamed(context, Routes.loginView);
                       },
-                      title: 'Sign In',
+                      title: ManagerStrings.signIn,
                       textStyle: const TextStyle(
                         color: ManagerColors.primaryColor,
                         fontSize: ManagerFontSizes.s16,
@@ -100,8 +99,10 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                     ),
                     const SizedBox(height: ManagerHeight.h24),
                     BaseButton(
-                      onPressed: () {},
-                      title: 'Visitor',
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.homeView);
+                      },
+                      title: ManagerStrings.visitor,
                       textStyle: TextStyle(
                         color: ManagerColors.white,
                         fontSize: ManagerFontSizes.s16,

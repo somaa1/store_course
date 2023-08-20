@@ -1,8 +1,4 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/resources/manager_assets.dart';
 import '../../../../core/resources/manager_colors.dart';
 import '../../../../core/resources/manager_font_sizes.dart';
@@ -10,8 +6,8 @@ import '../../../../core/resources/manager_font_weight.dart';
 import '../../../../core/resources/manager_height.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_width.dart';
-import '../../../../core/routes.dart';
 import '../../../../core/widgets/base_button.dart';
+import '../../../../route/routes.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -78,7 +74,7 @@ class _LoginViewState extends State<LoginView> {
                 cursorColor: ManagerColors.primaryColor,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: ManagerStrings.email,
                   labelStyle: TextStyle(
                       fontSize: ManagerFontSizes.s16,
                       color: ManagerColors.gray),
@@ -96,7 +92,7 @@ class _LoginViewState extends State<LoginView> {
                 cursorColor: ManagerColors.primaryColor,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: ManagerStrings.password,
                   labelStyle: TextStyle(
                       fontSize: ManagerFontSizes.s16,
                       color: ManagerColors.gray),
@@ -132,9 +128,9 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ],
                   ),
-                  const Text(
+                   Text(
                     ManagerStrings.forgotYourPassword,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: ManagerColors.primaryColor,
                       fontSize: ManagerFontSizes.s16,
                     ),
@@ -159,9 +155,9 @@ class _LoginViewState extends State<LoginView> {
                       Navigator.pushReplacementNamed(
                           context, Routes.registerView);
                     },
-                    child: const Text(
+                    child:  Text(
                       ManagerStrings.signUp,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: ManagerColors.primaryColor,
                         fontSize: ManagerFontSizes.s16,
                       ),
@@ -176,7 +172,7 @@ class _LoginViewState extends State<LoginView> {
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.homeView);
                 },
-                title: 'Login',
+                title: ManagerStrings.login,
                 textStyle: TextStyle(
                   color: ManagerColors.white,
                   fontSize: ManagerFontSizes.s16,

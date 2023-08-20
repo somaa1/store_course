@@ -8,8 +8,9 @@ import '../../../../core/resources/manager_font_weight.dart';
 import '../../../../core/resources/manager_height.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_width.dart';
-import '../../../../core/routes.dart';
+import '../../../../core/storage/local/database/shared_preferences/app_settings_shared_preferences.dart';
 import '../../../../core/widgets/base_button.dart';
+import '../../../../route/routes.dart';
 import '../widget/out_boarding_content.dart';
 import '../widget/progress_indicator.dart';
 
@@ -23,6 +24,7 @@ class OutBoardingScreen extends StatefulWidget {
 class _OutBoardingScreenState extends State<OutBoardingScreen> {
   late PageController _pageController;
   int _currentPageIndex = 0;
+  final AppSettingsSharedPreferences _appSettingsSharedPreferences = AppSettingsSharedPreferences();
 
   @override
   void initState() {
@@ -45,7 +47,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
           child: IconButton(
             onPressed: () {
               _pageController.previousPage(
-                duration:  Duration(
+                duration: const Duration(
                   milliseconds: Constants.pageViewSliderDuration,
                 ),
                 curve: Curves.fastLinearToSlowEaseIn,
@@ -78,7 +80,11 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                 isVisibleIcon: false,
                 bgColor: ManagerColors.transparent,
                 elevation: Constants.elevationZero,
-                onPressed: () {},
+                onPressed: () {
+                  _appSettingsSharedPreferences.saveViewedOutBoarding();
+                  Navigator.pushReplacementNamed(
+                      context, Routes.authenticationView);
+                },
               ),
               child: BaseButton(
                 width: ManagerWidth.w10,
@@ -123,7 +129,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                     _currentPageIndex = value;
                   });
                 },
-                children: const [
+                children: [
                   OutBoardingContent(
                     image: ManagerAssets.outBoarding1,
                     title: ManagerStrings.outBoardingTitle1,
@@ -207,6 +213,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                     color: ManagerColors.white,
                   ),
                   onPressed: () {
+                    _appSettingsSharedPreferences.saveViewedOutBoarding();
                     Navigator.pushReplacementNamed(
                         context, Routes.authenticationView);
                   },
